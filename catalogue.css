@@ -628,6 +628,8 @@ html, body {
     overflow-x: hidden;
 }
 
+/* --- Correctif Défilement Tactile Header --- */
+
 .navbar {
     position: sticky;
     top: 0;
@@ -635,7 +637,9 @@ html, body {
     background-color: #0B0B0E;
     border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     z-index: 1000;
-    padding: 10px 0;
+    padding: 12px 0;
+    /* On autorise le conteneur principal à ne pas bloquer les enfants */
+    overflow: visible !important; 
 }
 
 .nav-container {
@@ -643,15 +647,14 @@ html, body {
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column; /* Force le logo en haut et les liens juste en dessous sur mobile */
+    align-items: flex-start;
     gap: 10px;
 }
 
 .logo {
     font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #D4AF37;
     text-decoration: none;
@@ -659,22 +662,34 @@ html, body {
     white-space: nowrap;
 }
 
-/* Sur mobile : défilement horizontal fluide des liens sans déformer la page */
+/* Forcer le défilement horizontal fluide au doigt sur mobile */
 .nav-links {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     list-style: none;
     gap: 10px;
     margin: 0;
-    padding: 5px 0;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    scrollbar-width: none;
+    padding: 5px 5px 10px 5px;
+    
+    /* Propriétés clés pour activer le glissement tactile */
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: scroll !important; 
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important; /* Défilement fluide iOS/Android */
+    touch-action: pan-x !important; /* Force le navigateur à accepter le geste horizontal */
+    
+    scrollbar-width: none; /* Cache la barre de défilement sur Firefox */
 }
 
 .nav-links::-webkit-scrollbar {
-    display: none;
+    display: none; /* Cache la barre de défilement sur Chrome/Safari */
+}
+
+.nav-links li {
+    display: inline-block !important;
+    flex-shrink: 0 !important; /* Empêche les éléments de se compresser */
 }
 
 .nav-links a {
@@ -682,11 +697,12 @@ html, body {
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     display: inline-block;
+    white-space: nowrap;
 }
 
 .nav-links a:hover, .nav-links a.active {
@@ -695,16 +711,19 @@ html, body {
     border-color: #D4AF37;
 }
 
-/* Adaptation Ordinateur / Tablette (Écrans > 768px) */
+/* Adaptation pour Ordinateur / Tablette (Écrans > 768px) */
 @media (min-width: 768px) {
     .nav-container {
-        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .nav-links {
-        width: auto;
-        overflow-x: visible;
+        width: auto !important;
+        overflow-x: visible !important;
         gap: 18px;
+        padding: 0;
     }
 
     .nav-links a {
@@ -712,10 +731,5 @@ html, body {
         border: none;
         padding: 0;
         font-size: 0.9rem;
-    }
-
-    .nav-links a:hover {
-        background: transparent;
-        color: #D4AF37;
     }
 }
