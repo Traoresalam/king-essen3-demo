@@ -507,7 +507,7 @@ html, body {
     overflow-x: hidden;
 }
 
-/* --- Navigation Mobile Flottante avec Scroll Horizontal --- */
+/* --- Style Navigation Mobile Burger --- */
 
 .navbar {
     position: sticky;
@@ -516,18 +516,17 @@ html, body {
     background-color: #0B0B0E;
     border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     z-index: 1000;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -537,73 +536,74 @@ html, body {
     color: #D4AF37;
     text-decoration: none;
     letter-spacing: 1px;
-    white-space: nowrap;
 }
 
+.mobile-menu-btn {
+    display: block;
+    background: none;
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Menu déroulant sur mobile */
 .nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    list-style: none !important;
-    gap: 8px !important;
-    margin: 0 !important;
-    padding: 4px 0 8px 0 !important;
-    
-    width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    white-space: nowrap !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x !important;
-    
-    scrollbar-width: none;
+    display: none; /* Cache le menu par défaut */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0B0B0E;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 15px 0;
+    margin: 0;
+    list-style: none;
+    gap: 12px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.9);
 }
 
-.nav-links::-webkit-scrollbar {
-    display: none;
-}
-
-.nav-links li {
-    display: inline-block !important;
-    flex-shrink: 0 !important;
+.nav-links.active {
+    display: flex; /* Affiche les 7 liens au clic */
 }
 
 .nav-links a {
     color: #F5F5F7;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    display: inline-block;
-    white-space: nowrap;
+    display: block;
+    padding: 8px 0;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #0B0B0E;
-    background: #D4AF37;
-    border-color: #D4AF37;
+.nav-links a:hover {
+    color: #D4AF37;
 }
 
+/* Affichage classique sur Ordinateur / Tablette (> 768px) */
 @media (min-width: 768px) {
-    .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .mobile-menu-btn {
+        display: none;
     }
-    
+
     .nav-links {
-        width: auto !important;
-        overflow-x: visible !important;
-        gap: 18px !important;
-        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        gap: 20px;
     }
 
     .nav-links a {
-        background: transparent;
-        border: none;
-        padding: 0;
         font-size: 0.9rem;
+        padding: 0;
     }
 }

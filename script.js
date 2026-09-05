@@ -40,3 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// --- Gestion du Menu Burger Mobile ---
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
+            }
+        });
+    }
+});
