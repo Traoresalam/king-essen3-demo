@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finaliser ma Commande | King Essen</title>
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="comande.css">
+</head>
+<body>
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie 3D</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Header Navigation -->
+    <header class="checkout-header">
+        <div class="container header-content">
+            <a href="catalogue.html" class="btn-back">
+                <i class="fa-solid fa-arrow-left"></i> <span>Retour au menu</span>
+            </a>
+            <div class="brand-logo">
+                <i class="fa-solid fa-crown gold-text"></i> KING ESSEN
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-checkout">
+        
+        <!-- Title & Stepper -->
+        <section class="checkout-intro">
+            <h1 class="page-title">Finalisez votre commande <span class="gold-text">King Essen</span></h1>
+            
+            <div class="stepper-wrapper">
+                <div class="step completed">
+                    <div class="step-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <span class="step-label">1. Mon Panier</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step active">
+                    <div class="step-icon"><i class="fa-solid fa-clipboard-user"></i></div>
+                    <span class="step-label">2. Mes Coordonnées</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <span class="step-label">3. Envoi WhatsApp</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty Cart State -->
+        <div id="emptyCartView" class="empty-cart-card hidden">
+            <i class="fa-solid fa-basket-shopping empty-icon"></i>
+            <h2>Votre panier est actuellement vide</h2>
+            <p>Découvrez nos créations culinaires royales et composez votre repas en haute définition.</p>
+            <a href="catalogue.html" class="btn-primary">
+                <i class="fa-solid fa-utensils"></i> Explorer le Catalogue
+            </a>
+        </div>
+
+        <!-- Checkout Grid Form + Cart Details -->
+        <div id="checkoutView" class="checkout-grid">
+            
+            <!-- Left Side: Dynamic Cart Items Summary -->
+            <section class="checkout-section cart-summary-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-receipt gold-text"></i> Récapitulatif du Panier</h2>
+                    <button id="btnClearCart" class="btn-clear-cart" title="Vider tout le panier">
+                        <i class="fa-solid fa-trash-can"></i> Vider
+                    </button>
+                </div>
+
+                <div id="cartItemsList" class="cart-items-list">
+                    <!-- Dynamic rendering via JavaScript -->
+                </div>
+
+                <!-- Totals Breakdown -->
+                <div class="totals-breakdown">
+                    <div class="total-row">
+                        <span>Sous-total plats</span>
+                        <strong id="subtotalDisplay">0 FCFA</strong>
+                    </div>
+                    <div class="total-row">
+                        <span>Frais de livraison</span>
+                        <strong id="deliveryFeeDisplay">1 500 FCFA</strong>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="total-row grand-total">
+                        <span>Total Général à payer</span>
+                        <strong id="grandTotalDisplay" class="gold-text">0 FCFA</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Order Information Form -->
+            <section class="checkout-section form-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-truck-ramp-box gold-text"></i> Mode de Réception</h2>
+                </div>
+
+                <!-- Delivery Mode Switcher -->
+                <div class="mode-switcher">
+                    <label class="mode-option active" id="modeDeliveryLabel">
+                        <input type="radio" name="deliveryMode" value="delivery" checked>
+                        <i class="fa-solid fa-motorcycle"></i>
+                        <span>🚴 Livraison à Domicile</span>
+                    </label>
+                    <label class="mode-option" id="modePickupLabel">
+                        <input type="radio" name="deliveryMode" value="pickup">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>🛍️ À Emporter (Pick-up)</span>
+                    </label>
+                </div>
+
+                <!-- Form Fields -->
+                <form id="orderForm" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="fullName">Nom & Prénom <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="fullName" placeholder="Ex: Salam Traoré" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Numéro Téléphone / WhatsApp <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="phoneNumber" placeholder="Ex: 07 00 00 00 00" required>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Delivery Fields -->
+                    <div id="deliveryFieldsGroup">
+                        <div class="form-group">
+                            <label for="communeSelect">Commune / Zone de Livraison <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <select id="communeSelect" required>
+                                    <option value="Cocody" data-fee="1500">Cocody (1 500 FCFA)</option>
+                                    <option value="Marcory" data-fee="1500">Marcory (1 500 FCFA)</option>
+                                    <option value="Plateau" data-fee="1500">Plateau (1 500 FCFA)</option>
+                                    <option value="Zone 4" data-fee="1500">Zone 4 (1 500 FCFA)</option>
+                                    <option value="Yopougon" data-fee="2000">Yopougon (2 000 FCFA)</option>
+                                    <option value="Abobo" data-fee="2000">Abobo (2 000 FCFA)</option>
+                                    <option value="Adjamé" data-fee="1500">Adjamé (1 500 FCFA)</option>
+                                    <option value="Koumassi" data-fee="2000">Koumassi (2 000 FCFA)</option>
+                                    <option value="Treichville" data-fee="1500">Treichville (1 500 FCFA)</option>
+                                    <option value="Attécoubé" data-fee="2000">Attécoubé (2 000 FCFA)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="addressDetails">Quartier & Point de Repère précis <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-house-chimney"></i>
+                                <input type="text" id="addressDetails" placeholder="Ex: Riviera 3, Rue E12, près de la pharmacie" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deliveryTime">Heure souhaitée <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                            <select id="deliveryTime" required>
+                                <option value="Dès que possible (30 - 45 min)">Dès que possible (~30-45 min)</option>
+                                <option value="Pour 12h30">Pour 12h30</option>
+                                <option value="Pour 13h00">Pour 13h00</option>
+                                <option value="Pour 19h30">Pour 19h30</option>
+                                <option value="Pour 20h00">Pour 20h00</option>
+                                <option value="Pour 20h30">Pour 20h30</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orderNotes">Instructions spéciales ou Allergies (Facultatif)</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fa-solid fa-comment-dots"></i>
+                            <textarea id="orderNotes" rows="3" placeholder="Ex: Pas de piment fort, piment à part..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btnSubmitWhatsApp" class="btn-whatsapp-submit">
+                        <i class="fa-brands fa-whatsapp"></i> Valider ma commande sur WhatsApp
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h2>Commande transmise !</h2>
+            <p>Votre commande a été envoyée avec succès sur WhatsApp. L'équipe <strong>King Essen</strong> valide la préparation dès maintenant.</p>
+            <button id="btnCloseModal" class="btn-primary" style="width: 100%; margin-top: 20px;">
+                Retour au catalogue
+            </button>
+        </div>
+    </div>
+
+    <script src="comande.js"></script>
+</body>
+</html>

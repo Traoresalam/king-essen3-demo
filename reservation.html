@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Table | King Essen</title>
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+    
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <!-- Subtle 3D Atmosphere Background -->
+    <div class="bg-3d-overlay"></div>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="catalogue.html" class="btn-back">
+                <i class="fa-solid fa-arrow-left"></i> <span>Retour au menu</span>
+            </a>
+            <div class="brand-logo">
+                <i class="fa-solid fa-crown gold-text"></i> KING ESSEN
+            </div>
+            <a href="tel:+2250000000000" class="btn-call-direct" title="Réservation de groupe (+10 pers)">
+                <i class="fa-solid fa-phone"></i> <span>Appel Direct</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-reservation">
+        
+        <!-- Hero Section -->
+        <section class="reservation-hero">
+            <h1 class="hero-title">Réservation de Table <span class="gold-text">King Essen</span></h1>
+            <p class="hero-subtitle">Assurez-vous une expérience gastronomique royale. Réservez votre table en quelques clics.</p>
+            
+            <div class="badges-wrapper">
+                <div class="badge-item"><i class="fa-solid fa-bolt gold-text"></i> Confirmation Instantanée</div>
+                <div class="badge-item"><i class="fa-solid fa-gem gold-text"></i> Accueil VIP</div>
+                <div class="badge-item"><i class="fa-solid fa-chair gold-text"></i> Placement Sur Mesure</div>
+            </div>
+        </section>
+
+        <!-- Layout Grid: Form + Info Sidebar -->
+        <div class="reservation-grid">
+            
+            <!-- Reservation Form Card -->
+            <section class="form-card">
+                <form id="reservationForm" onsubmit="event.preventDefault();">
+                    
+                    <!-- Step 1: Reservation Details -->
+                    <div class="form-step-block">
+                        <h2 class="step-title"><i class="fa-solid fa-calendar-days gold-text"></i> 1. Détails de la Réservation</h2>
+                        
+                        <!-- Date & Guest Count -->
+                        <div class="grid-2-col">
+                            <div class="form-group">
+                                <label for="resDate">Date de réservation <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <input type="date" id="resDate" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="resGuests">Nombre de personnes <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user-group"></i>
+                                    <select id="resGuests" required>
+                                        <option value="1">1 Personne (Solo)</option>
+                                        <option value="2" selected>2 Personnes (Duo)</option>
+                                        <option value="3">3 Personnes</option>
+                                        <option value="4">4 Personnes (Famille / Amis)</option>
+                                        <option value="5">5 Personnes</option>
+                                        <option value="6">6 Personnes</option>
+                                        <option value="7-9">7 à 9 Personnes</option>
+                                        <option value="10+">10+ Personnes (Groupe / VIP)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Time Slot Selector -->
+                        <div class="form-group">
+                            <label>Service & Créneau Horaire <span class="required">*</span></label>
+                            
+                            <div class="service-tabs">
+                                <button type="button" class="tab-btn active" id="tabLunch"><i class="fa-solid fa-sun"></i> Déjeuner (12h - 15h)</button>
+                                <button type="button" class="tab-btn" id="tabDinner"><i class="fa-solid fa-moon"></i> Dîner (19h - 23h)</button>
+                            </div>
+
+                            <div class="time-slots-grid" id="timeSlotsContainer">
+                                <!-- Dynamic rendering via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Zone / Ambience Choice -->
+                        <div class="form-group">
+                            <label>Choix de l'Ambiance / Zone <span class="required">*</span></label>
+                            <div class="zone-cards-grid">
+                                <label class="zone-card active">
+                                    <input type="radio" name="resZone" value="👑 Salle Principale" checked>
+                                    <div class="zone-content">
+                                        <i class="fa-solid fa-crown zone-icon"></i>
+                                        <div class="zone-name">Salle Principale</div>
+                                        <span class="zone-desc">Ambiance chaleureuse & tamisée</span>
+                                    </div>
+                                </label>
+
+                                <label class="zone-card">
+                                    <input type="radio" name="resZone" value="🍷 Espace VIP / Privatif">
+                                    <div class="zone-content">
+                                        <i class="fa-solid fa-wine-glass zone-icon"></i>
+                                        <div class="zone-name">Espace VIP</div>
+                                        <span class="zone-desc">Intimité & service exclusif</span>
+                                    </div>
+                                </label>
+
+                                <label class="zone-card">
+                                    <input type="radio" name="resZone" value="🌿 Terrasse Extérieure">
+                                    <div class="zone-content">
+                                        <i class="fa-solid fa-leaf zone-icon"></i>
+                                        <div class="zone-name">Terrasse</div>
+                                        <span class="zone-desc">Vue dégagée & cadre aéré</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Customer Contact Info -->
+                    <div class="form-step-block">
+                        <h2 class="step-title"><i class="fa-solid fa-user-check gold-text"></i> 2. Vos Coordonnées</h2>
+                        
+                        <div class="grid-2-col">
+                            <div class="form-group">
+                                <label for="clientName">Nom & Prénom <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" id="clientName" placeholder="Ex: Salam Traoré" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="clientPhone">Numéro WhatsApp / Téléphone <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="tel" id="clientPhone" placeholder="Ex: 07 00 00 00 00" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clientEmail">Adresse E-mail (Facultatif)</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="clientEmail" placeholder="Ex: exemple@domaine.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Special Requests & Event -->
+                    <div class="form-step-block">
+                        <h2 class="step-title"><i class="fa-solid fa-champagne-glasses gold-text"></i> 3. Événement & Souhaits Spéciaux</h2>
+                        
+                        <div class="form-group">
+                            <label for="eventType">Occasion Spéciale</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-cake-candles"></i>
+                                <select id="eventType">
+                                    <option value="Aucun">Repas Classique</option>
+                                    <option value="Anniversaire 🎂">Anniversaire 🎂</option>
+                                    <option value="Dîner d'affaires 💼">Dîner d'affaires 💼</option>
+                                    <option value="Rendez-vous romantique 🥂">Rendez-vous romantique 🥂</option>
+                                    <option value="Autre événement 🎉">Autre célébration 🎉</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialNotes">Instructions particulières / Demandes spécifiques</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <i class="fa-solid fa-comment-dots"></i>
+                                <textarea id="specialNotes" rows="3" placeholder="Préférence de placement, régimes alimentaires, bougie d'anniversaire..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btnSubmitReservation" class="btn-submit-gold">
+                        <i class="fa-brands fa-whatsapp"></i> Confirmer ma Réservation sur WhatsApp
+                    </button>
+                </form>
+            </section>
+
+            <!-- Sidebar Info & Policies -->
+            <aside class="sidebar-info">
+                
+                <!-- Hours Card -->
+                <div class="info-card">
+                    <h3 class="info-card-title"><i class="fa-solid fa-clock gold-text"></i> Horaires d'Ouverture</h3>
+                    <ul class="hours-list">
+                        <li><span>Mardi - Vendredi :</span> <strong>12h00 - 23h30</strong></li>
+                        <li><span>Samedi - Dimanche :</span> <strong>12h00 - 01h00</strong></li>
+                        <li><span>Lundi :</span> <strong class="red-text">Fermé (Journée Privée)</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Policies Card -->
+                <div class="info-card">
+                    <h3 class="info-card-title"><i class="fa-solid fa-shield-halved gold-text"></i> Politique d'Accueil</h3>
+                    <ul class="policy-list">
+                        <li><i class="fa-solid fa-check"></i> Les tables sont maintenues <strong>15 minutes</strong> après l'heure fixée.</li>
+                        <li><i class="fa-solid fa-check"></i> Annulation ou retard ? Prévenez-nous simplement par WhatsApp.</li>
+                        <li><i class="fa-solid fa-check"></i> Tenue correcte exigée pour l'accès aux espaces VIP.</li>
+                    </ul>
+                </div>
+
+                <!-- Group Booking Callout -->
+                <div class="info-card callout-card">
+                    <i class="fa-solid fa-users-rectangle callout-icon gold-text"></i>
+                    <h4>Réservation de Groupe (+10 Pers)</h4>
+                    <p>Pour vos événements d'entreprise ou réceptions privées, contactez directement notre service conciergerie.</p>
+                    <a href="tel:+2250000000000" class="btn-call-outline">
+                        <i class="fa-solid fa-phone"></i> +225 00 00 00 00 00
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Success Confirmation Modal -->
+    <div class="modal-overlay" id="reservationModal">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-glass-water-droplet gold-text"></i></div>
+            <h2>Demande Générée !</h2>
+            <p>Votre demande de réservation a été préparée. Cliquez sur <strong>Envoyer</strong> dans WhatsApp pour valider l'attribution de votre table avec l'équipe King Essen.</p>
+            <button id="btnCloseModal" class="btn-submit-gold" style="width: 100%; margin-top: 20px;">
+                Fermer
+            </button>
+        </div>
+    </div>
+
+    <script src="reservation.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Gastronomique | King Essen 3D</title>
+    <!-- Font Awesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catalogue.css">
+</head>
+<body>
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container">
+            <div class="brand-badge"><i class="fa-solid fa-crown"></i> Haute Gastronomie </div>
+            <h1 class="hero-title">Catalogue Gastronomique <span class="gold-text">King Essen</span></h1>
+            <p class="hero-subtitle">Explorez nos créations culinaires en haute définition et composez votre repas royal.</p>
+            
+            <div class="badges-reassurance">
+                <div class="reassurance-card"><i class="fa-solid fa-leaf"></i> <span>Ingrédients Frais</span></div>
+                <div class="reassurance-card"><i class="fa-solid fa-cube"></i> <span>Rendu  Realist</span></div>
+                <div class="reassurance-card"><i class="fa-solid fa-motorcycle"></i> <span>Livraison Rapide à Abidjan & Environs</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Toolbar & Filters -->
+    <section class="controls-section">
+        <div class="container toolbar">
+            <div class="search-filter-row">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Rechercher un plat, une viande, un accompagnement...">
+                </div>
+                <div class="sort-select">
+                    <select id="sortSelect">
+                        <option value="popular">Trier par : Les plus populaires</option>
+                        <option value="asc">Prix : Croissant</option>
+                        <option value="desc">Prix : Décroissant</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Categories Horizontal Scroll -->
+            <div class="categories-scroll">
+                <button class="category-btn active" data-category="all">Tous les plats</button>
+                <button class="category-btn" data-category="signature">Spécialités Signature</button>
+                <button class="category-btn" data-category="grill">Grillades & Viandes</button>
+                <button class="category-btn" data-category="fish">Poissons & Crustacés</button>
+                <button class="category-btn" data-category="fastfood">Fast-Food Gourmet</button>
+                <button class="category-btn" data-category="sides">Accompagnements</button>
+                <button class="category-btn" data-category="desserts">Desserts & Cocktails</button>
+            </div>
+
+            <div class="sub-filters">
+                <div class="budget-filter">
+                    <label for="priceRange">Budget Max: <strong id="priceDisplay" class="gold-text">25 000 FCFA</strong></label>
+                    <input type="range" id="priceRange" min="2000" max="25000" step="1000" value="25000">
+                </div>
+                <div id="resultsCount" style="color: var(--text-muted);">Affichage de 6 plats</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Catalog Grid -->
+    <main class="container">
+        <div class="catalog-grid" id="catalogGrid"></div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-image-side">
+                <img id="modalImg" src="" alt="3D Dish">
+            </div>
+            <div class="modal-details-side">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-price" id="modalPrice"></div>
+                <p id="modalDesc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;"></p>
+                
+                <div class="modal-section-title">Choix de l'accompagnement</div>
+                <div class="options-group" id="modalSides">
+                    <div class="option-item selected">Frites Maison</div>
+                    <div class="option-item">Alloco Banane</div>
+                    <div class="option-item">Riz Parfumé</div>
+                    <div class="option-item">Légumes Sautés</div>
+                </div>
+
+                <div class="modal-section-title">Ingrédients & Allergènes</div>
+                <p id="modalIngredients" style="font-size: 0.85rem; color: var(--text-muted);"></p>
+
+                <div style="margin-top: 25px;">
+                    <button class="btn-add-cart" id="modalAddBtn" style="padding: 14px; width: 100%;">
+                        <i class="fa-solid fa-bag-shopping"></i> Valider et Ajouter au Panier
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Floating Cart Drawer -->
+    <div class="cart-sticky-bar" id="stickyCart">
+        <div class="cart-info">
+            <div class="cart-icon-wrapper">
+                <i class="fa-solid fa-crown"></i>
+                <div class="cart-count-badge" id="cartBadge">0</div>
+            </div>
+            <div class="cart-total-text">
+                <span>Total Sélection</span>
+                <span id="cartTotal">0 FCFA</span>
+            </div>
+        </div>
+        <a href="comande.html" class="btn-checkout">
+            Voir mon panier <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+        </a>
+    </div>
+
+    <script src="catalogue.js"></script>
+</body>
+</html>

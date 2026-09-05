@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Essen - Menu & Carte Digital 3D</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Entête & Header Compact -->
+    <header>
+        <div class="brand-container">
+            <h1 class="brand-title">King Essen</h1>
+            <p class="brand-subtitle">Menu & Carte Digital </p>
+        </div>
+        <button class="cart-btn" onclick="alert('Redirection vers votre panier...')">
+            🛒 <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </header>
+
+    <!-- Navigation Filtres & Recherche -->
+    <div class="controls-sticky-wrapper">
+        <div class="search-box">
+            <input type="text" id="search-input" class="search-input" placeholder="Rechercher un plat ou un ingrédient...">
+        </div>
+        <div class="categories-wrapper">
+            <button class="cat-tab active" data-category="all">👑 Tout le Menu</button>
+            <button class="cat-tab" data-category="specialites">👑 Spécialités</button>
+            <button class="cat-tab" data-category="entrees">🥗 Entrées & Salades</button>
+            <button class="cat-tab" data-category="plats">🥩 Plats & Grillades</button>
+            <button class="cat-tab" data-category="desserts">🍰 Desserts Gourmet</button>
+            <button class="cat-tab" data-category="boissons">🍹 Boissons & Cocktails</button>
+        </div>
+    </div>
+
+    <!-- Grille des Plats (Cards 3D) -->
+    <main class="menu-container" id="menu-grid">
+
+        <!-- Card 1 -->
+        <article class="card-3d" data-category="specialites" data-name="filet mignon royal or 24k" data-ingredients="boeuf sauce truffe or comestible">
+            <div class="card-img-container" onclick="openModal('Filet Mignon Royal Or 24K', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80', 'Filet de bœuf tendre rôti au beurre d\'herbes, nappé d\'une réduction à la truffe noire et surmonté de feuilles d\'or comestibles 24 carats.', 'Gluten, Produits laitiers', '25 000 FCFA')">
+                <span class="card-badge">Chef Recommendation</span>
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=70" alt="Filet Mignon Royal" class="card-img" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Filet Mignon Royal 24K</h2>
+                <p class="card-desc">Bœuf tendron rôti, réduction à la truffe noire et éclats d'or comestibles.</p>
+                <div class="card-footer">
+                    <span class="card-price">25 000 FCFA</span>
+                   <!-- <button class="add-btn" onclick="addToCart()">+ Ajouter</button>-->
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card-3d" data-category="plats" data-name="tomahawk steak maturé grillades" data-ingredients="boeuf maturé épices grillé">
+            <div class="card-img-container" onclick="openModal('Tomahawk Steak Maturé', 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80', 'Pièce d\'exception maturée 45 jours, grillée au feu de bois avec un beurre aux herbes de Provence.', 'Aucun', '30 000 FCFA')">
+                <span class="card-badge">Épicé 🌶️</span>
+                <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=500&q=70" alt="Tomahawk Steak" class="card-img" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Tomahawk Steak Maturé</h2>
+                <p class="card-desc">Pièce de bœuf maturée 45 jours, grillée au feu de bois et beurre aromatisé.</p>
+                <div class="card-footer">
+                    <span class="card-price">30 000 FCFA</span>
+                   <!-- <button class="add-btn" onclick="addToCart()">+ Ajouter</button>-->
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card-3d" data-category="entrees" data-name="salade burrata truffée" data-ingredients="burrata tomate pesto truffe">
+            <div class="card-img-container" onclick="openModal('Salade Burrata Truffée', 'https://images.unsplash.com/photo-1592417817098-8f3d6ef23a81?auto=format&fit=crop&w=800&q=80', 'Burrata crémeuse, pignons de pin torréfiés, tomates anciennes et un filet d\'huile d\'olive à la truffe.', 'Lait, Fruits à coque', '12 000 FCFA')">
+                <span class="card-badge">Végétarien 🍃</span>
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6ef23a81?auto=format&fit=crop&w=500&q=70" alt="Salade Burrata" class="card-img" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Salade Burrata Truffée</h2>
+                <p class="card-desc">Burrata artisanale, tomates anciennes, pesto de basilic frais et huile truffée.</p>
+                <div class="card-footer">
+                    <span class="card-price">12 000 FCFA</span>
+                   <!-- <button class="add-btn" onclick="addToCart()">+ Ajouter</button>-->
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card-3d" data-category="desserts" data-name="sphere chocolat supreme dessert" data-ingredients="chocolat noir caramel vanille">
+            <div class="card-img-container" onclick="openModal('Sphère Chocolat Suprême', 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80', 'Sphère en chocolat noir garnie d\'une mousse vanille Bourbon, fondue au caramel chaud.', 'Gluten, Lait, Œufs', '8 500 FCFA')">
+                <span class="card-badge">Gourmet 🍰</span>
+                <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=500&q=70" alt="Sphère Chocolat" class="card-img" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Sphère Chocolat Suprême</h2>
+                <p class="card-desc">Cœur de mousse vanille Bourbon, coulis de caramel chaud versé à la table.</p>
+                <div class="card-footer">
+                    <span class="card-price">8 500 FCFA</span>
+                  <!--  <button class="add-btn" onclick="addToCart()">+ Ajouter</button>-->
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card-3d" data-category="boissons" data-name="cocktail royal king signature" data-ingredients="champagne fruits rouges or maracuja">
+            <div class="card-img-container" onclick="openModal('Cocktail Royal King', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80', 'Champagne raffiné, nectar de maracuja, purée de framboise et paillettes d\'or infusées.', 'Alcool', '10 000 FCFA')">
+                <span class="card-badge">Signature 🍹</span>
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=500&q=70" alt="Cocktail Royal King" class="card-img" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Cocktail Royal King</h2>
+                <p class="card-desc">Base de champagne, nectar de maracuja, coulis de fruits rouges et paillettes d'or.</p>
+                <div class="card-footer">
+                    <span class="card-price">10 000 FCFA</span>
+                   <!-- <button class="add-btn" onclick="addToCart()">+ Ajouter</button>-->
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Modal Pop-up HD -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalDirect()">✕</button>
+            <img src="" id="modal-img" class="modal-img" alt="Plat HD">
+            <div class="modal-body">
+                <h2 class="card-title" id="modal-title" style="font-size: 1.3rem;"></h2>
+                <p class="card-desc" id="modal-desc" style="margin-top: 8px;"></p>
+                <div class="card-price" id="modal-price" style="margin-top: 10px;"></div>
+                <div class="allergens-box">
+                    <p class="allergens-title">Allergènes & Infos :</p>
+                    <p class="allergens-text" id="modal-allergens"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call To Action Fixe -->
+    <footer class="cta-footer">
+        <div class="cta-text">
+            <span>Réservation sur place</span>
+            Réservez chez King Essen
+        </div>
+        <!--<div class="cta-actions">
+            <a href="tel:+2250000000000" class="btn-cta btn-call">📞 Appeler</a>
+            <a href="https://wa.me/2250000000000?text=Bonjour%20King%20Essen,%20je%20souhaite%20réserver%20une%20table." class="btn-cta btn-whatsapp" target="_blank">💬 WhatsApp</a>
+        </div>-->
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>

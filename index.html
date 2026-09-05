@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta SEO Local & Open Graph -->
+    <title>King Essen | Restaurant Gastronomique & Expérience Visuelle 3D</title>
+    <meta name="description" content="Découvrez le restaurant King Essen à Cocody, Abidjan. Cuisine gastronomique d'exception, cadre luxueux 3D et ambiance chaleureuse. Réservez votre table.">
+    <meta property="og:title" content="King Essen - Haute Gastronomie & Immersion 3D">
+    <meta property="og:description" content="L'excellence culinaire au cœur d'Abidjan. Plats signatures, salons VIP et ambiance raffinée.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="restaurant">
+
+    <!-- Schema.org JSON-LD LocalBusiness / Restaurant -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "King Essen",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+      "telephone": "+2250700000000",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rue des Jardins, Cocody",
+        "addressLocality": "Abidjan",
+        "addressCountry": "CI"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 5.3599517,
+        "longitude": -3.9870387
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "01:00"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Header Navigation -->
+   <!-- <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo">
+                <i class="fa-solid fa-crown gold-text"></i> KING ESSEN
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">Notre Histoire</a>
+                <a href="#specialties" class="nav-link">Créations 3D</a>
+                <a href="#hours" class="nav-link">Horaires</a>
+                <a href="galerie.html" class="nav-link">Galerie 3D</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="reservation.html" class="btn-gold">Réserver une table</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu Mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>-->
+
+    <!-- Hero Section avec Visuel 3D HD -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-gem gold-text"></i> Gastronomie & Design  Hyper-réaliste</span>
+            <h1 class="hero-title">L'Art de la Table Royale au <span class="gold-text">King Essen</span></h1>
+            <p class="hero-subtitle">Une immersion sensorielle unique où la haute cuisine rencontre un cadre d'exception modélisé pour votre plaisir visuel et gustatif.</p>
+            <div class="hero-buttons">
+                <a href="catalogue.html" class="btn-primary"><i class="fa-solid fa-utensils"></i> Explorer le Menu</a>
+                <a href="galeri.html" class="btn-secondary"><i class="fa-solid fa-cube"></i> Univers Visuel </a>
+            </div>
+        </div>
+        <div class="hero-3d-frame">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="Rendu 3D HD de la salle de restaurant King Essen" class="hero-img-3d" loading="lazy">
+            <div class="hero-overlay"></div>
+        </div>
+    </section>
+
+    <!-- Section Présentation & Histoire -->
+    <section class="about-section" id="about">
+        <div class="container grid-2-cols">
+            <div class="about-visual">
+                <div class="card-3d-wrapper">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1000&q=80" alt="Rendu 3D HD du Chef Exécutif King Essen" class="about-img-3d" loading="lazy">
+                    <div class="card-3d-badge">
+                        <i class="fa-solid fa-award gold-text"></i>
+                        <span>Excellence Culinaires 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="section-tag">Notre ADN & Passion</span>
+                <h2 class="section-title">L'Histoire d'une Quête d'Excellence</h2>
+                <p class="about-description">
+                    Fondé sur le principe de l'élégance absolue, <strong>King Essen</strong> redéfinit les codes de la restauration moderne à Abidjan. Notre établissement marie la précision de la haute gastronomie internationale aux saveurs riches de nos terroirs.
+                </p>
+                <p class="about-description">
+                    Sous la direction de notre Chef passionné, chaque plat est pensé comme une œuvre d'art, où textures haute précision, produits d'exception et dressage sculpturale s'unissent pour créer un souvenir inoubliable.
+                </p>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <i class="fa-solid fa-fire-burner gold-text"></i>
+                        <h4>Produits Nobles</h4>
+                        <p>Ingrédients frais et sélection d'exception.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fa-solid fa-wand-magic-sparkles gold-text"></i>
+                        <h4>Cadre Immorsif</h4>
+                        <p>Architecture  raffinée et éclairage dynamique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Spécialités 3D HD -->
+    <section class="specialties-section" id="specialties">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Rendus  Hyper-réalistes</span>
+                <h2 class="section-title">Nos Spécialités Signatures</h2>
+                <p class="section-subtitle">Aperçu en haute définition de nos créations culinaires emblématiques.</p>
+            </div>
+
+            <div class="specialties-grid">
+                <!-- Carte 3D 1 -->
+                <article class="specialty-card-3d">
+                    <div class="specialty-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Visualisation 3D HD du Burger Gold Master King Essen" loading="lazy">
+                        <span class="price-tag">15 000 FCFA</span>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Burger Gold  Master</h3>
+                        <p>Bœuf Angus maturé, feuille d'or 24k, sauce royale secrète et brioche artisanale.</p>
+                    </div>
+                </article>
+
+                <!-- Carte 3D 2 -->
+                <article class="specialty-card-3d">
+                    <div class="specialty-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Visualisation 3D HD du Steak T-Bone King Essen" loading="lazy">
+                        <span class="price-tag">22 000 FCFA</span>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Steak T-Bone Braisé </h3>
+                        <p>Viande d'exception cuite au feu de bois, beurre de truffe et herbes aromatiques.</p>
+                    </div>
+                </article>
+
+                <!-- Carte 3D 3 -->
+                <article class="specialty-card-3d">
+                    <div class="specialty-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Visualisation 3D HD du Cocktail Royal King Essen" loading="lazy">
+                        <span class="price-tag">8 000 FCFA</span>
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Cocktail Signature Royal</h3>
+                        <p>Mixologie moléculaire, nectar exotique, pépites dorées et fumée d'essence de bois.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Horaires dans une Carte 3D épurée -->
+    <section class="hours-section" id="hours">
+        <div class="container">
+            <div class="hours-card-3d">
+                <div class="hours-header">
+                    <i class="fa-solid fa-clock gold-text hours-icon"></i>
+                    <h2>Horaires d'Ouverture & Service</h2>
+                    <p>Venez vivre l'expérience aux heures de votre choix</p>
+                </div>
+                <div class="hours-body">
+                    <div class="hours-row">
+                        <span class="day">Lundi – Jeudi</span>
+                        <span class="dots"></span>
+                        <span class="time">11h00 – 23h00</span>
+                    </div>
+                    <div class="hours-row highlight">
+                        <span class="day">Vendredi – Dimanche</span>
+                        <span class="dots"></span>
+                        <span class="time">11h00 – 01h00 <small>(Service continu)</small></span>
+                    </div>
+                </div>
+                <div class="hours-footer">
+                    <a href="tel:+2250700000000" class="btn-hours-call">
+                        <i class="fa-solid fa-phone-volume"></i> Réservation téléphonique directe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bouton d'Appel Direct Fixe (Mobile First) -->
+    <a href="tel:+2250700000000" class="fixed-call-btn" aria-label="Appeler King Essen">
+        <i class="fa-solid fa-phone"></i>
+        <span>Appeler King Essen</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-crown gold-text"></i> KING ESSEN
+                </div>
+                <p>Restaurant Gastronomique & Univers Visuel . L'élégance et le goût au plus haut sommet.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">Notre Histoire</a></li>
+                    <li><a href="catalogue.html">Le Menu</a></li>
+                    <li><a href="galeri.html">Galerie 3D</a></li>
+                    <li><a href="contact.html">Contact & Accès</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Communauté</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/2250700000000" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/kingessen" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com/kingessen" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://tiktok.com/@kingessen" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 King Essen. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

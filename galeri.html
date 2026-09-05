@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Photos  | King Essen</title>
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="galeri.css">
+</head>
+<body>
+    <!-- Navigation Globale -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">KING ESSEN</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="comande.html">Commande</a></li>
+                <li><a href="reservation.html">Réservation</a></li>
+                <li><a href="galeri.html">Galerie </a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="catalogue.html" class="btn-back">
+                <i class="fa-solid fa-arrow-left"></i> <span>Retour au menu</span>
+            </a>
+            <div class="brand-logo">
+                <i class="fa-solid fa-crown gold-text"></i> KING ESSEN
+            </div>
+            <a href="reservation.html" class="btn-gold-header">
+                <i class="fa-solid fa-calendar-check"></i> <span>Réserver</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-gallery">
+        
+        <!-- Hero Section -->
+        <section class="gallery-hero">
+            <h1 class="hero-title">L'Univers Visuel  <span class="gold-text">King Essen</span></h1>
+            <p class="hero-subtitle">Explorez le cadre, l'ambiance et la haute gastronomie du King Essen à travers nos créations  photoréalistes en haute définition.</p>
+            
+            <div class="hero-immersion-banner">
+                <i class="fa-solid fa-expand gold-text"></i>
+                <span>Cliquez sur une création visuelle pour l'agrandir en haute résolution 8K</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Category Filter Bar -->
+        <nav class="filter-bar">
+            <button class="filter-btn active" data-filter="all">
+                👑 Tout le Restaurant
+            </button>
+            <button class="filter-btn" data-filter="gastronomy">
+                🍽️ Plats & Gastronomie
+            </button>
+            <button class="filter-btn" data-filter="ambiance">
+                🍷 Cadre & Intérieur
+            </button>
+            <button class="filter-btn" data-filter="drinks">
+                🍹 Cocktails & Desserts
+            </button>
+            <button class="filter-btn" data-filter="events">
+                ✨ Événements & Nuit
+            </button>
+        </nav>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-grid" id="galleryGrid">
+            
+            <!-- Item 1: Ambiance VIP -->
+            <article class="gallery-card" data-category="ambiance" data-action-type="reserve" data-action-target="VIP">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Espace VIP King Essen" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Espace VIP Privatif</h2>
+                        <p class="card-desc">Salons d'apparat, éclairage tamisé et service dédié.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 2: Burger Gold -->
+            <article class="gallery-card" data-category="gastronomy" data-action-type="order" data-action-target="Burger Gold 3D">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80" alt="Burger Gold 3D Master" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Burger Gold Master</h2>
+                        <p class="card-desc">Boeuf Angus, feuille d'or 24k et sauce secrète royal.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 3: Cocktail VIP -->
+            <article class="gallery-card" data-category="drinks" data-action-type="order" data-action-target="Cocktail Signature Royal">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80" alt="Cocktail Signature Royal" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Cocktail Signature Royal</h2>
+                        <p class="card-desc">Mixologie moléculaire, fruits exotiques et pépites dorées.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 4: Terrasse Nuit -->
+            <article class="gallery-card" data-category="ambiance" data-action-type="reserve" data-action-target="Terrasse">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80" alt="Terrasse Nocturne" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Terrasse Lumineuse Nuit</h2>
+                        <p class="card-desc">Cadre végétal aéré et vue panoramique sous les étoiles.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 5: Steak T-Bone -->
+            <article class="gallery-card" data-category="gastronomy" data-action-type="order" data-action-target="Steak T-Bone Braisé">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Steak T-Bone Braisé" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Steak T-Bone Braisé</h2>
+                        <p class="card-desc">Viande maturée, cuisson au feu de bois et beurre de truffe.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 6: Soirée Événement -->
+            <article class="gallery-card" data-category="events" data-action-type="reserve" data-action-target="Soirée">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80" alt="Ambiance Nocturne & DJ" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Soirée Live & DJ Lounge</h2>
+                        <p class="card-desc">Sets musicaux raffinés et ambiance feutrée du week-end.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 7: Dessert Gourmet -->
+            <article class="gallery-card" data-category="drinks" data-action-type="order" data-action-target="Sphère Chocolat Or">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1200&q=80" alt="Sphère Chocolat Or" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Sphère Chocolat Or</h2>
+                        <p class="card-desc">Dôme en chocolat grands crus et cœur vanille Bourbon.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 8: Salle Principale -->
+            <article class="gallery-card" data-category="ambiance" data-action-type="reserve" data-action-target="Salle Principale">
+                <div class="card-media">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80" alt="Salle Principale Luxe" loading="lazy">
+                    <div class="card-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+                        <h2 class="card-title">Salle Principale Royale</h2>
+                        <p class="card-desc">Tables d'exception, design contemporain et confort absolu.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Call To Action Immersion -->
+        <section class="gallery-cta">
+            <h2 class="cta-title">Séduit par notre cadre visuel ?</h2>
+            <p class="cta-subtitle">Venez vivre l'expérience gastronomique King Essen en réel.</p>
+            <div class="cta-buttons-wrapper">
+                <a href="reservation.html" class="btn-cta-gold">
+                    <i class="fa-solid fa-chair"></i> Réserver une Table
+                </a>
+                <a href="comande.html" class="btn-cta-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Commander sur WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal VIP -->
+    <div class="lightbox-modal" id="lightboxModal" tabIndex="-1" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Fermer la vue plein écran">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Image précédente">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Image suivante">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg" class="lightbox-image">
+            <div class="lightbox-caption">
+                <div class="caption-text">
+                    <h3 id="lightboxTitle">Titre Visuel</h3>
+                    <p id="lightboxDesc">Description du rendu visuel ...</p>
+                </div>
+                <div class="caption-action" id="lightboxActionContainer">
+                    <!-- Action Button dynamically inserted by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="galeri.js"></script>
+</body>
+</html>
