@@ -470,7 +470,7 @@ html, body {
     overflow-x: hidden;
 }
 
-/* --- Correctif Défilement Tactile Header --- */
+/* --- Navigation Mobile Flottante avec Scroll Horizontal --- */
 
 .navbar {
     position: sticky;
@@ -479,9 +479,7 @@ html, body {
     background-color: #0B0B0E;
     border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     z-index: 1000;
-    padding: 12px 0;
-    /* On autorise le conteneur principal à ne pas bloquer les enfants */
-    overflow: visible !important; 
+    padding: 10px 0;
 }
 
 .nav-container {
@@ -489,9 +487,10 @@ html, body {
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
-    flex-direction: column; /* Force le logo en haut et les liens juste en dessous sur mobile */
+    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    width: 100%;
 }
 
 .logo {
@@ -504,34 +503,31 @@ html, body {
     white-space: nowrap;
 }
 
-/* Forcer le défilement horizontal fluide au doigt sur mobile */
 .nav-links {
     display: flex !important;
     flex-direction: row !important;
-    list-style: none;
-    gap: 10px;
-    margin: 0;
-    padding: 5px 5px 10px 5px;
+    list-style: none !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 4px 0 8px 0 !important;
     
-    /* Propriétés clés pour activer le glissement tactile */
     width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: scroll !important; 
+    overflow-x: auto !important;
     overflow-y: hidden !important;
     white-space: nowrap !important;
-    -webkit-overflow-scrolling: touch !important; /* Défilement fluide iOS/Android */
-    touch-action: pan-x !important; /* Force le navigateur à accepter le geste horizontal */
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
     
-    scrollbar-width: none; /* Cache la barre de défilement sur Firefox */
+    scrollbar-width: none;
 }
 
 .nav-links::-webkit-scrollbar {
-    display: none; /* Cache la barre de défilement sur Chrome/Safari */
+    display: none;
 }
 
 .nav-links li {
     display: inline-block !important;
-    flex-shrink: 0 !important; /* Empêche les éléments de se compresser */
+    flex-shrink: 0 !important;
 }
 
 .nav-links a {
@@ -539,7 +535,7 @@ html, body {
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 7px 14px;
+    padding: 6px 14px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -553,7 +549,6 @@ html, body {
     border-color: #D4AF37;
 }
 
-/* Adaptation pour Ordinateur / Tablette (Écrans > 768px) */
 @media (min-width: 768px) {
     .nav-container {
         flex-direction: row;
@@ -564,8 +559,8 @@ html, body {
     .nav-links {
         width: auto !important;
         overflow-x: visible !important;
-        gap: 18px;
-        padding: 0;
+        gap: 18px !important;
+        padding: 0 !important;
     }
 
     .nav-links a {
