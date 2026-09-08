@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Direct WhatsApp Message Generation
     btnWhatsappSubmit.addEventListener('click', () => {
         if (validateForm()) {
-            const restaurantPhone = "2250700000000";
+            const restaurantPhone = "2250595912505";
             const encodedText = encodeURIComponent(
                 `*Nouveau Message - King Essen*\n\n` +
                 `*Nom:* ${fullName.value.trim()}\n` +
